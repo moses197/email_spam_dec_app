@@ -5,12 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
     protected $spamWords = [
         'free', 'win', 'winner', 'cash', 'prize', // Add your spam words here
     ];
+
+    public function index() 
+    {
+        $user = Auth::user();
+        $messages = Message::latest()->where('recipient_id', $user->id)->get();
+        // dd($messages);
+        return view('index', [
+            'messages' => $messages,
+        ]);
+    }
 
     public function create()
     {
@@ -34,7 +45,7 @@ class MessageController extends Controller
             return redirect()->back()->withErrors(['recipient_email' => 'Recipient not found']);
         }
 
-        $sender = auth()->user();
+        $sender = auth()->user(); 
 
         // Determine if the message is spam
         $type = $this->isSpam($validated['subject'], $validated['body']) ? 'spam' : 'sent';
@@ -49,7 +60,8 @@ class MessageController extends Controller
             'type' => $type,
         ]);
 
-        return redirect()->route('index')->with('success', 'Message sent successfully');
+        // return redirect()->route('index')->with('success', 'Message sent successfully');
+        return back();
     }
 
     private function isSpam($subject, $body)
@@ -62,3 +74,6 @@ class MessageController extends Controller
         return false;
     }
 }
+
+
+/** */

@@ -10,10 +10,24 @@ class UserController extends Controller
 {
 
 
-    public function login()
+    public function login(Request $request)
     {
-        
+        $login_auth = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required',
+        ]);
+
+        if(auth()->attempt($login_auth)){
+            $request->session()->regenerate();
+
+            return redirect('index')->with('message',"You're Logged in now");
+        }
+
+        return back()->withErrors(['email' => 'Invalid Credential'])->onlyInput('email');
+        // User::login($login_auth);
     }
+
+
     public function register(Request $request)
     {
         $validated = $request->validate([

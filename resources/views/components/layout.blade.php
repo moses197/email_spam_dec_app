@@ -28,9 +28,9 @@
                                 <li>
                                     <a href="/index"
                                       ><span class="nav-icon text-primary"
-                                        ><i data-feather="home"></i
+                                        ><i data-feather="archive"></i
                                       ></span>
-                                      <span class="nav-text">Dashboard</span></a
+                                      <span class="nav-text">Inbox</span></a
                                     >
                                   </li>
                         <li>
@@ -53,23 +53,24 @@
                         <li>
                             <a href="">
                                 <span class="nav-icon text-danger">
-                                    <i data-feather="alert-triangle"></i>
+                                    <i data-feather="alert-octagon"></i>
                                 </span> 
-                                <span class="nav-text">Spam</span>
+                                <span class="nav-text">Spam</span> <span class="nav-badge"><b
+                                    class="badge badge-pill gd-danger">10</b></span>
                             </a>
                         </li>
                         
                     </ul>
                 </div>
             </div><!-- sidenav bottom -->
-            <div class="no-shrink">
+            {{-- <div class="no-shrink">
                 <div class="p-3 d-flex align-items-center">
                     <div class="text-sm hidden-folded text-muted">Trial: 35%</div>
                     <div class="progress mx-2 flex" style="height:4px">
                         <div class="progress-bar gd-success" style="width: 35%"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

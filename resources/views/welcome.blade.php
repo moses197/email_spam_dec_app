@@ -18,7 +18,8 @@
                     <div class="p-3 p-md-5">
                         <h5>Welcome back</h5>
                         <p><small class="text-muted">Login to manage your account</small></p>
-                        <form class="" role="form" action="dashboard.html">
+                        <form method="POST" action="{{ route('authenticate') }}">
+                            @csrf
                             <div class="form-group"><label>Email</label><input type="email" name="email" class="form-control"
                                     placeholder="Enter email"></div>
                             <div class="form-group"><label>Password</label><input type="password" name="password" class="form-control"

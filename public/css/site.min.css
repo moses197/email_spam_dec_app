@@ -11617,6 +11617,17 @@ fieldset[disabled] .ui-check input + i:before {
     flex-shrink: 0;
     opacity: 0.65;
 }
+
+.nav-icorn {
+    height: 100%;
+    font-size: .93455rem;
+    /* display: flex; */
+    gap: 1rem;
+    /* justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem; */
+}
+
 .active > a > .nav-icon,
 a:active > .nav-icon,
 a:hover > .nav-icon {

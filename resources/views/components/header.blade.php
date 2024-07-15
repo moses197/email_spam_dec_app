@@ -1,3 +1,4 @@
+@props(['messages' => [], ])
 <div id="header" class="page-header">
     <div class="navbar navbar-expand-lg"><!-- brand --> <a href="index.html"
             class="navbar-brand d-lg-none"><svg width="32" height="32" viewBox="0 0 512 512"
@@ -8,7 +9,7 @@
                     </path>
                 </g>
             </svg><!-- <img src="../assets/img/logo.png" alt="..."> --> <span
-                class="hidden-folded d-inline l-s-n-1x d-lg-none">Basik</span>
+                class="hidden-folded d-inline l-s-n-1x d-lg-none">exrger</span>
         </a><!-- / brand --><!-- Navbar collapse -->
         <div class="collapse navbar-collapse order-2 order-lg-1" id="navbarToggler">
             <form class="input-group m-2 my-lg-0">
@@ -18,6 +19,9 @@
                     placeholder="Search components..." data-plugin="typeahead"
                     data-api="../assets/api/menu.json">
             </form>
+            <div style="width: 10rem">
+                <p>Hi, {{Auth::user()->name}}</p>
+            </div>
         </div>
         <ul class="nav navbar-menu order-1 order-lg-2">
             <li class="nav-item d-none d-sm-block"><a class="nav-link px-2" data-toggle="fullscreen"
@@ -59,11 +63,12 @@
                 </div><!-- ############ Setting END-->
             </li><!-- Notification -->
             <li class="nav-item dropdown"><a class="nav-link px-2 mr-lg-2" data-toggle="dropdown"><i
-                        data-feather="bell"></i> <span class="badge badge-pill badge-up bg-primary">8</span>
+                        data-feather="bell"></i> <span class="badge badge-pill badge-up bg-primary">9</span>
                 </a><!-- dropdown -->
                 <div class="dropdown-menu dropdown-menu-right mt-3 w-md animate fadeIn p-0">
                     <div class="scrollable hover" style="max-height: 250px">
                         <div class="list list-row">
+                            @foreach ($messages as $message)                                
                             <div class="list-item" data-id="12">
                                 <div><a href="#"><span class="w-32 avatar gd-info">A</span></a></div>
                                 <div class="flex">
@@ -71,6 +76,7 @@
                                         status</div>
                                 </div>
                             </div>
+                            @endforeach
                             <div class="list-item" data-id="8">
                                 <div><a href="#"><span class="w-32 avatar gd-success"><img
                                                 src="../assets/img/a8.jpg" alt="."></span></a></div>

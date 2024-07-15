@@ -17,31 +17,40 @@
                         <div class="padding">
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-theme table-row v-middle"
-                                    data-plugin="dataTable">
+                                    >
                                     <thead>
                                         <tr>
-                                            <th><span class="text-muted">ID</span></th>
+                                            <th><span class="text-muted">Name</span></th>
                                             <th><span class="text-muted">Image</span></th>
-                                            <th><span class="text-muted">Sender</span></th>
+                                            <th><span class="text-muted">Messages</span></th>
                                             <th><span class="text-muted d-none d-sm-block">Status</span></th>
                                             <th><span class="text-muted d-none d-sm-block">Date</span></th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="" data-id="16">
+                                        @foreach ($messages as $message)                                            
+                                        <tr class="">
                                             <td style="min-width:30px;text-align:center"><small
-                                                    class="text-muted">16</small></td>
-                                            <td><a href="#"><span class="w-32 avatar gd-info">F</span></a></td>
-                                            <td class="flex"><a href="#" class="item-title text-color">AI Could
-                                                    Uber</a>
-                                                <div class="item-except text-muted text-sm h-1x">When it comes to
-                                                    artificial intelligence, little things can add up in big ways</div>
+                                                    class="text-muted">{{$message->user->name}}</small>
                                             </td>
-                                            <td><span class="item-amount d-none d-sm-block text-sm">2000000000</span>
+                                            <td><a href="#"><span class="w-32 avatar gd-info">F</span></a></td>
+                                            <td class="flex"><a href="#" class="item-title text-color">dsfkjadsf{{$message->subject}}</a>
+                                                <div class="item-except text-muted text-sm h-1x">{{$message->body}}</div>
+                                            </td>
+                                            <td>
+                                                @if ($message->type == 'spam')
+                                                <div style="display: flex; gap: 4px;">
+                                                    <span class="text-danger"> <i data-feather="alert-triangle"></i> </span> 
+                                                    <span> {{$message->type}}</span>
+                                                </div>                                                    
+                                                @else
+                                                     <span class="text-success"> <i data-feather="check-circle"></i> </span> <span> {{$message->type}}</span>
+                                                @endif
+                                                {{-- item-amount d-none d-sm-block text-sm text-danger --}}
                                             </td>
                                             <td><span
-                                                    class="item-amount d-none d-sm-block text-sm [object Object]">533333</span>
+                                                    class="item-amount d-none d-sm-block text-sm [object Object]">{{$message->created_at}}</span>
                                             </td>
                                             <td>
                                                 <div class="item-action dropdown">
@@ -62,7 +71,8 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="" data-id="17">
+                                        @endforeach
+                                        {{-- <tr class="" data-id="17">
                                             <td style="min-width:30px;text-align:center"><small
                                                     class="text-muted">17</small></td>
                                             <td><a href="#"><span class="w-32 avatar gd-warning">H</span></a></td>
@@ -492,7 +502,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
                             </div>
