@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -44,5 +45,14 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect()->route('index')->with('success', 'Registration successful!');
+    }
+
+    public function list_users() {
+        $user = Auth::user();
+        $get_users = User::whereNotIn('id', [$user->id])->get();
+        // dd($get_users);
+        return view('app-user', [
+            'get_users' => $get_users,
+        ]);
     }
 }

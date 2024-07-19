@@ -15,14 +15,17 @@
                             <div class="sidenav my-3">
                                 <nav class="nav-active-text-primary" data-nav>
                                     <ul class="nav">
-                                        <li><a href="/email#inbox"><span class="nav-icon"><i
+                                        {{-- <li><a href="/email#inbox"><span class="nav-icon"><i
                                                         data-feather="archive"></i> </span><span
                                                     class="nav-text">Inbox</span> <span class="nav-badge"><b
-                                                        class="badge badge-pill gd-info">9</b></span></a></li>
-                                        <li><a href="/email#sent"><span class="nav-icon"><i
+                                                        class="badge badge-pill gd-info">9</b></span></a>
+                                        </li> --}}
+                                        <li>
+                                            <a href="/email#sent"><span class="nav-icon"><i
                                                         data-feather="send"></i> </span><span
                                                     class="nav-text">Sent</span> <span class="nav-badge"><b
-                                                        class="badge badge-pill gd-danger">10</b></span></a></li>
+                                                        class="badge badge-pill gd-danger">10</b></span></a>
+                                        </li>
                                         <li><a href="/email#draft"><span class="nav-icon"><i
                                                         data-feather="edit-2"></i> </span><span
                                                     class="nav-text">Draft</span></a></li>
@@ -98,10 +101,11 @@
                                         data-feather="menu"></i></button>
                             </div>
                         </div>
+
                         <div class="scroll-y mx-3 mb-0 card">
                             <div class="loadings m-4"></div>
                             <div class="list list-row hides">
-                                <div class="list-item" data-id="9">
+                                {{-- <div class="list-item" data-id="9">
                                     <div><label class="ui-check m-0"><input type="checkbox" name="id"
                                                 value="9"> <i></i></label></div>
                                     <div><a href="#" data-toggle-class><i data-feather="star"
@@ -109,8 +113,9 @@
                                     <div><a href="app.mail.detail.html#9"><span class="w-40 avatar gd-info"
                                                 data-toggle-class="loading"><img src="../assets/img/a9.jpg"
                                                     alt="."></span></a></div>
-                                    <div class="flex"><a href="app.mail.detail.html#9"
-                                            class="item-title text-color h-1x">Web App develop tutorial</a>
+                                    <div class="flex">
+                                        <a href="app.mail.detail.html#9"
+                                            class="item-title text-color h-1x">{{$messages[0]->subject}}</a>
                                         <div class="item-except text-muted text-sm h-1x">Build a progressive web app
                                             using jQuery</div>
                                         <div class="item-tag tag hide">
@@ -119,7 +124,9 @@
                                     <div class="no-wrap">
                                         <div class="item-date text-muted text-sm d-none d-md-block">2 days ago</div>
                                     </div>
-                                </div>
+                                </div> --}}
+
+                                @foreach ($myMessages as $message)                                    
                                 <div class="list-item" data-id="17">
                                     <div><label class="ui-check m-0"><input type="checkbox" name="id"
                                                 value="17"> <i></i></label></div>
@@ -127,19 +134,19 @@
                                                 class="active-warning text-muted"></i></a></div>
                                     <div><a href="app.mail.detail.html#17"><span class="w-40 avatar gd-warning"
                                                 data-toggle-class="loading">H</span></a></div>
+
                                     <div class="flex"><a href="app.mail.detail.html#17"
-                                            class="item-title text-color h-1x">AI Could Uber</a>
-                                        <div class="item-except text-muted text-sm h-1x">AI will highlight & emphasize
-                                            key areas where students need help, allowing teachers to focus on
-                                            facilitating the learning process</div>
-                                        <div class="item-tag tag hide">
-                                            Company,Personal,Sent,Private,Draft,Workshop,Trash</div>
+                                            class="item-title text-color h-1x"> {{$message->subject}} </a>
+                                        <div class="item-except text-muted text-sm h-1x">{{ $message->body }}</div>
                                     </div>
                                     <div class="no-wrap">
-                                        <div class="item-date text-muted text-sm d-none d-md-block">13/12 18</div>
+                                        <div class="item-date text-muted text-sm d-none d-md-block">{{$message->created_at->shortRelativeDiffForHumans()}}</div>
                                     </div>
                                 </div>
-                                <div class="list-item" data-id="2">
+                                @endforeach
+
+
+                                {{-- <div class="list-item" data-id="2">
                                     <div><label class="ui-check m-0"><input type="checkbox" name="id"
                                                 value="2"> <i></i></label></div>
                                     <div><a href="#" data-toggle-class><i data-feather="star"
@@ -510,8 +517,8 @@
                             </div>
                             <div class="no-result hide">
                                 <div class="p-4 text-center">No Results</div>
-                            </div>
-                        </div>
+                            </div> --}}
+                        </div jk>
                         <div class="px-3 py-3 mt-auto">
                             <div class="d-flex align-items-center">
                                 <div class="flex d-flex flex-row"><button

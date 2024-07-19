@@ -11324,7 +11324,7 @@ fieldset[disabled] .ui-check input + i:before {
     position: relative;
     overflow: hidden;
 }
-.page-loading {
+/* .page-loading {
     pointer-events: none;
 }
 .page-loading,
@@ -11334,7 +11334,7 @@ fieldset[disabled] .ui-check input + i:before {
 }
 .page-loading .loading-spin {
     animation: loading 1s linear infinite;
-}
+} */
 @keyframes loading {
     0% {
         transform: rotate(0);

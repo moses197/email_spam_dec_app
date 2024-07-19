@@ -18,9 +18,7 @@ Route::get('/signup', function() {
 
 Route::get('/index', [MessageController::class, 'index'])->name('index')->middleware('auth');
 
-Route::get('/user', function() {
-    return view('app-user');
-})->middleware('auth');
+Route::get('/user', [UserController::class, 'list_users'])->middleware('auth');
 
 
 Route::get('/message', function () {
@@ -28,9 +26,7 @@ Route::get('/message', function () {
 })->middleware('auth');
 Route::post('/messages', [MessageController::class, 'store'])->name('messages-store')->middleware('auth');
 
-Route::get('/email', function () {
-    return view('app-mail');
-})->middleware('auth');
+Route::get('/email', [MessageController::class, 'list_email'])->middleware('auth');
 
 
 Route::get('/dashboard', function () {

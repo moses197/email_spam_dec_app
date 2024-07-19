@@ -1,9 +1,10 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\User;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->mediumText('body');
             $table->string('type');
             $table->timestamps();
+            Carbon::class;
         });
     }
 

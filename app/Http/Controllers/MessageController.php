@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class MessageController extends Controller
 {
     protected $spamWords = [
-        'free', 'win', 'winner', 'cash', 'prize', // Add your spam words here
+        'free', 'win', 'winner', 'cash', 'prize',
     ];
 
     public function index() 
     {
         $user = Auth::user();
+        // dd($user);
         $messages = Message::latest()->where('recipient_id', $user->id)->get();
         // dd($messages);
         return view('index', [
@@ -48,7 +49,7 @@ class MessageController extends Controller
         $sender = auth()->user(); 
 
         // Determine if the message is spam
-        $type = $this->isSpam($validated['subject'], $validated['body']) ? 'spam' : 'sent';
+        $type = $this->isSpam($validated['subject'], $validated['body']) ? 'spam' : 'valid';
 
         // Create the message with the recipient's user ID and type
         Message::create([
@@ -72,6 +73,24 @@ class MessageController extends Controller
             }
         }
         return false;
+    }
+
+    public function list_email()
+    {
+        $user = User::get();
+        $sender = Auth::user();
+        // dd($sender);
+
+        $messages = Message::latest()->where('recipient_id', $user[0]->id)->get();
+
+        // $myMessages = Message::latest()->where('sender_id', $user->id)->get();
+        $myMessages = Message::latest()->where('sender_id', $sender->id)->get();
+        // dd($messages);
+
+        return view('app-mail', [
+            'messages' => $messages,
+            'myMessages' => $myMessages,
+        ]);
     }
 }
 
