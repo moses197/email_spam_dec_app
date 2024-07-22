@@ -22,7 +22,7 @@ return new class extends Migration
             $table->mediumText('body');
             $table->string('type');
             $table->timestamps();
-            Carbon::class;
+            // Carbon::class;
         });
     }
 

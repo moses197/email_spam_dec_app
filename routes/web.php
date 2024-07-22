@@ -33,3 +33,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
+Route::get('/broke', function() {
+    return view('app-mail-detail');
+});
+
+Route::post('logout', [UserController::class, 'logout']);

@@ -55,4 +55,13 @@ class UserController extends Controller
             'get_users' => $get_users,
         ]);
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
+    }
 }

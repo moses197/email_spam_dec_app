@@ -48,10 +48,10 @@ class MessageController extends Controller
 
         $sender = auth()->user(); 
 
-        // Determine if the message is spam
+        // Determine if the message is spam or not o
         $type = $this->isSpam($validated['subject'], $validated['body']) ? 'spam' : 'valid';
 
-        // Create the message with the recipient's user ID and type
+        // Create the message with the recipient's user ID and type(spam or valid msg)
         Message::create([
             'sender_id' => $sender->id,
             'recipient_id' => $recipient->id,
@@ -94,5 +94,3 @@ class MessageController extends Controller
     }
 }
 
-
-/** */

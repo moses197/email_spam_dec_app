@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>1 | Basik - Bootstrap 4 Web Application</title>
+    <title>Praise</title>
     <meta name="description" content="Responsive, Bootstrap, BS4">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><!-- style -->
     <link rel="stylesheet" href="{{asset('css/site.min.css')}}">

@@ -55,8 +55,10 @@
                                 <span class="nav-icon text-danger">
                                     <i data-feather="alert-octagon"></i>
                                 </span> 
-                                <span class="nav-text">Spam</span> <span class="nav-badge"><b
-                                    class="badge badge-pill gd-danger">10</b></span>
+                                <span class="nav-text">Spam</span> 
+                                <span class="nav-badge"><b
+                                    class="badge badge-pill gd-danger">2</b>
+                                </span>
                             </a>
                         </li>
                         
